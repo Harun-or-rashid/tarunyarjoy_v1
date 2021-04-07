@@ -103,7 +103,7 @@
 
 {{--                        </li>--}}
                         <li><a href="#" >CONTACT US</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Do you want to work with us!</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Want to be a Volunteer !</a></li>
 
 
                     </ul>
