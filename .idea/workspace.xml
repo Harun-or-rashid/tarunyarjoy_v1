@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3005e158-a8ad-4746-8bd6-028a20d1e55f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/partial/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/partial/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,6 +260,8 @@
       <workItem from="1615481191334" duration="120000" />
       <workItem from="1615486976024" duration="2963000" />
       <workItem from="1617809674212" duration="5309000" />
+      <workItem from="1617856558224" duration="756000" />
+      <workItem from="1617902651686" duration="2489000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1579412252782</created>

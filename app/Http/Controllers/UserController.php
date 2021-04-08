@@ -110,7 +110,7 @@ class UserController extends Controller
 
         User::create($data);
 
-        return redirect('create.user');
+        return redirect()->back();
 
     }
 
