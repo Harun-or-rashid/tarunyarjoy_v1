@@ -75,7 +75,7 @@ class UserController extends Controller
             'name'=>'required',
             'email'=>'required',
             'phone'=>'required',
-            'role'=>'required',
+//            'role'=>'required',
            'password'=>'required',
             'image'=>'required|file|image',
 
@@ -85,7 +85,7 @@ class UserController extends Controller
            'name'=>$request->name,
            'email'=>$request->email,
            'phone'=>$request->phone,
-           'role'=>$request->role,
+//           'role'=>$request->role,
            'password'=>bcrypt($request->password),
        ];
 

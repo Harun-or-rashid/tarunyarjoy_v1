@@ -42,16 +42,16 @@
             <input type="password" class="form-control" id="exampleFormControlInput1" name="password" placeholder="Password">
             {{$errors->first('password')}}
         </div>
-        <div class="form-group">
-            <label for="exampleFormControlSelect1">Role</label>
-            <select name="role" class="form-control" id="exampleFormControlSelect1">
-                <option value="" disabled>Select Customer Status</option>
-                <option value="2">Authority</option>
-                <option value="3">General Admin</option>
-                <option value="4">Member</option>
-            </select>
-            {{$errors->first('role')}}
-        </div>
+{{--        <div class="form-group">--}}
+{{--            <label for="exampleFormControlSelect1">Role</label>--}}
+{{--            <select name="role" class="form-control" id="exampleFormControlSelect1">--}}
+{{--                <option value="" disabled>Select Customer Status</option>--}}
+{{--                <option value="2">Authority</option>--}}
+{{--                <option value="3">General Admin</option>--}}
+{{--                <option value="4">Member</option>--}}
+{{--            </select>--}}
+{{--            {{$errors->first('role')}}--}}
+{{--        </div>--}}
 
         <div class="form-group">
             <label for="exampleFormControlInput1">Upload an Image</label>
