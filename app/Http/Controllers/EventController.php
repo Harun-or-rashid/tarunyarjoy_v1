@@ -46,16 +46,25 @@ return view('backend.events.create');
                 'place'=>'required',
                 'image'=>'required|file|image'
             ]);
+
             if (request()->hasFile('image')){/**/
                 if ($request->file('image')) {//**
-                    $extension = $request->image->ex;
-                    $fileName=time().'.'.$extension;
+//                    $extension = $request->image->getClientOriginalExtension();
+                    $fileName=$request->image->getClientOriginalName();
                     $path =  $request->image->move(public_path('uploads/events'), $fileName);
 //***
                     $data['image']=$fileName;
                 }
             }
-            Event::create($validation);
+            $eventdata=[
+                'title'=>$request->title,
+                'description'=>$request->description,
+                'time'=>$request->time,
+                'place'=>$request->place,
+                'image'=>$fileName
+            ];
+//            dd($eventdata);
+            Event::create($eventdata);
          return   redirect()->back();
         }catch (Exception $e){
           return  redirect()->back();
