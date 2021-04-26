@@ -3,19 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="3005e158-a8ad-4746-8bd6-028a20d1e55f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/events/1614782387.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/events/1614942980.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/events/1614943051.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/events/1614943077.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/events/1614943269.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/events/1614943345.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/events/1614943400.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/events/1614943448.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/events/1614943453.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/events/1614943493.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/events/1614945965.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/events/1614945994.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/partial/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/partial/header.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +155,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../foodstore_app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -274,7 +267,16 @@
       <workItem from="1617856558224" duration="756000" />
       <workItem from="1617902651686" duration="2613000" />
       <workItem from="1618031295100" duration="1160000" />
-      <workItem from="1618251098325" duration="4803000" />
+      <workItem from="1618251098325" duration="6319000" />
+      <workItem from="1618341520717" duration="3119000" />
+      <workItem from="1618383577467" duration="4551000" />
+      <workItem from="1618465327637" duration="598000" />
+      <workItem from="1618468320217" duration="2127000" />
+      <workItem from="1618598998073" duration="1320000" />
+      <workItem from="1618996759355" duration="1258000" />
+      <workItem from="1619204751377" duration="7297000" />
+      <workItem from="1619347303808" duration="920000" />
+      <workItem from="1619423402778" duration="3737000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1579412252782</created>
@@ -358,6 +360,11 @@
           <url>file://$PROJECT_DIR$/resources/views/backend/user/create.blade.php</url>
           <line>18</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/AuthController.php</url>
+          <line>13</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

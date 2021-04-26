@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use GuzzleHttp;
 use App\Event;
+//use App\Http;
+use http\Client;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use Mockery\Exception;
 
@@ -26,6 +29,11 @@ class EventController extends Controller
      */
     public function create()
     {
+        $client=new \GuzzleHttp\Client();
+        $res=$client->get('https://thefoodstore.app/api/v1/stores');
+        $data=$res->getBody()->getContents();
+        $r=json_decode($data);
+        dd($r->data);
 return view('backend.events.create');
     }
 

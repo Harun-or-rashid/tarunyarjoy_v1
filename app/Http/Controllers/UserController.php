@@ -75,7 +75,7 @@ class UserController extends Controller
             'name'=>'required',
             'email'=>'required',
             'phone'=>'required',
-//            'role'=>'required',
+            'nid'=>'required',
            'password'=>'required',
             'image'=>'required|file|image',
 
@@ -85,7 +85,7 @@ class UserController extends Controller
            'name'=>$request->name,
            'email'=>$request->email,
            'phone'=>$request->phone,
-//           'role'=>$request->role,
+           'nid'=>$request->nid,
            'password'=>bcrypt($request->password),
        ];
 
@@ -100,10 +100,11 @@ class UserController extends Controller
         ],*/
 
         if (request()->hasFile('image')){/**/
-            if ($request->file('image')->isValid()) {//**
-                $extension = $request->image->extension();
-                $fileName=time().'.'.$extension;
-                $path = $request->image->storeAs('images', $fileName);//***
+            if ($request->file('image')) {//**
+//                    $extension = $request->image->getClientOriginalExtension();
+                $fileName=$request->image->getClientOriginalName();
+                $path =  $request->image->move(public_path('uploads/users'), $fileName);
+//***
                 $data['image']=$fileName;
             }
         }

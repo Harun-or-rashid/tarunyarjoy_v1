@@ -155,14 +155,9 @@
                         {{$errors->first('password')}}
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Role</label>
-                        <select name="role" class="form-control" id="exampleFormControlSelect1">
-                            <option value="" disabled>Select Customer Status</option>
-                            <option value="2">Authority</option>
-                            <option value="3">General Admin</option>
-                            <option value="4">Member</option>
-                        </select>
-                        {{$errors->first('role')}}
+                        <label for="exampleFormControlSelect1">NID No</label>
+                        <input type="text" name="nid" placeholder="give your national Id card no">
+                        {{$errors->first('nid')}}
                     </div>
 
                     <div class="form-group">
