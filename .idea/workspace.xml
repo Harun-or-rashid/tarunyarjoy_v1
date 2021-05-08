@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3005e158-a8ad-4746-8bd6-028a20d1e55f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/partial/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/partial/header.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +149,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../fakrud" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -276,7 +270,18 @@
       <workItem from="1618996759355" duration="1258000" />
       <workItem from="1619204751377" duration="7297000" />
       <workItem from="1619347303808" duration="920000" />
-      <workItem from="1619423402778" duration="3737000" />
+      <workItem from="1619423402778" duration="4050000" />
+      <workItem from="1619582550638" duration="746000" />
+      <workItem from="1619615622958" duration="750000" />
+      <workItem from="1619651073465" duration="2602000" />
+      <workItem from="1619892987032" duration="3695000" />
+      <workItem from="1619930667149" duration="3125000" />
+      <workItem from="1620020326088" duration="1238000" />
+      <workItem from="1620108319367" duration="1188000" />
+      <workItem from="1620194608185" duration="595000" />
+      <workItem from="1620330739991" duration="1170000" />
+      <workItem from="1620381049828" duration="592000" />
+      <workItem from="1620403554815" duration="1261000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1579412252782</created>
