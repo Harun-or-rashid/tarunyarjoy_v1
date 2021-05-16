@@ -12,8 +12,13 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        factory(User::class, 10)->create();
-        User::create([
+        factory(User::class, 10)->create()->each(function ($user) {
+            $user->assignRole('Donor');
+        });
+        factory(User::class, 10)->create()->each(function ($user) {
+            $user->assignRole(['Volunteer', 'Donor']);
+        });
+        $user = User::create([
             'name' => "Admin",
             'nid' => "123-1312-13132",
             'email' => "admin@admin.com",
@@ -23,5 +28,6 @@ class UserSeeder extends Seeder
             'status' => 1,
             'phone' => '+8801726257333',
         ]);
+        $user->assignRole(['Admin', 'Donor']);
     }
 }

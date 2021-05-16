@@ -25,10 +25,12 @@
                         <li>
                             <!-- inner menu: contains the actual data -->
                             <ul class="menu">
-                                <li><!-- start message -->
+                                <li>
+                                    <!-- start message -->
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="{{asset('assets/img')}}/avatar3.png" class="img-circle" alt="User Image"/>
+                                            <img src="{{ asset('assets/img') }}/avatar3.png" class="img-circle"
+                                                alt="User Image" />
                                         </div>
                                         <h4>
                                             Support Team
@@ -40,7 +42,8 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="{{asset('assets/img')}}/avatar2.png" class="img-circle" alt="user image"/>
+                                            <img src="{{ asset('assets/img') }}/avatar2.png" class="img-circle"
+                                                alt="user image" />
                                         </div>
                                         <h4>
                                             AdminLTE Design Team
@@ -52,7 +55,8 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="{{asset('assets/img')}}/avatar.png" class="img-circle" alt="user image"/>
+                                            <img src="{{ asset('assets/img') }}/avatar.png" class="img-circle"
+                                                alt="user image" />
                                         </div>
                                         <h4>
                                             Developers
@@ -64,7 +68,8 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="{{asset('assets/img')}}/avatar2.png" class="img-circle" alt="user image"/>
+                                            <img src="{{ asset('assets/img') }}/avatar2.png" class="img-circle"
+                                                alt="user image" />
                                         </div>
                                         <h4>
                                             Sales Department
@@ -76,7 +81,8 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="{{asset('assets/img')}}/avatar.png" class="img-circle" alt="user image"/>
+                                            <img src="{{ asset('assets/img') }}/avatar.png" class="img-circle"
+                                                alt="user image" />
                                         </div>
                                         <h4>
                                             Reviewers
@@ -108,7 +114,8 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <i class="fa fa-warning danger"></i> Very long description here that may not fit into the page and may cause design problems
+                                        <i class="fa fa-warning danger"></i> Very long description here that may not fit
+                                        into the page and may cause design problems
                                     </a>
                                 </li>
                                 <li>
@@ -143,53 +150,65 @@
                         <li>
                             <!-- inner menu: contains the actual data -->
                             <ul class="menu">
-                                <li><!-- Task item -->
+                                <li>
+                                    <!-- Task item -->
                                     <a href="#">
                                         <h3>
                                             Design some buttons
                                             <small class="pull-right">20%</small>
                                         </h3>
                                         <div class="progress xs">
-                                            <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-aqua" style="width: 20%"
+                                                role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                aria-valuemax="100">
                                                 <span class="sr-only">20% Complete</span>
                                             </div>
                                         </div>
                                     </a>
                                 </li><!-- end task item -->
-                                <li><!-- Task item -->
+                                <li>
+                                    <!-- Task item -->
                                     <a href="#">
                                         <h3>
                                             Create a nice theme
                                             <small class="pull-right">40%</small>
                                         </h3>
                                         <div class="progress xs">
-                                            <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-green" style="width: 40%"
+                                                role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                aria-valuemax="100">
                                                 <span class="sr-only">40% Complete</span>
                                             </div>
                                         </div>
                                     </a>
                                 </li><!-- end task item -->
-                                <li><!-- Task item -->
+                                <li>
+                                    <!-- Task item -->
                                     <a href="#">
                                         <h3>
                                             Some task I need to do
                                             <small class="pull-right">60%</small>
                                         </h3>
                                         <div class="progress xs">
-                                            <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-red" style="width: 60%"
+                                                role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                aria-valuemax="100">
                                                 <span class="sr-only">60% Complete</span>
                                             </div>
                                         </div>
                                     </a>
                                 </li><!-- end task item -->
-                                <li><!-- Task item -->
+                                <li>
+                                    <!-- Task item -->
                                     <a href="#">
                                         <h3>
                                             Make beautiful transitions
                                             <small class="pull-right">80%</small>
                                         </h3>
                                         <div class="progress xs">
-                                            <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-yellow" style="width: 80%"
+                                                role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                aria-valuemax="100">
                                                 <span class="sr-only">80% Complete</span>
                                             </div>
                                         </div>
@@ -211,7 +230,7 @@
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header bg-light-blue">
-                            <img src="{{asset('assets/img')}}/avatar3.png" class="img-circle" alt="User Image" />
+                            <img src="{{ asset('assets/img') }}/avatar3.png" class="img-circle" alt="User Image" />
                             <p>
                                 Jane Doe - Web Developer
                                 <small>Member since Nov. 2012</small>
