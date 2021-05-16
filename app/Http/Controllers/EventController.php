@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use GuzzleHttp;
-use App\Event;
+use App\Models\Event;
 //use App\Http;
 use http\Client;
 use Illuminate\Support\Facades\Http;
@@ -29,12 +30,12 @@ class EventController extends Controller
      */
     public function create()
     {
-        $client=new \GuzzleHttp\Client();
-        $res=$client->get('https://thefoodstore.app/api/v1/stores');
-        $data=$res->getBody()->getContents();
-        $r=json_decode($data);
+        $client = new \GuzzleHttp\Client();
+        $res = $client->get('https://thefoodstore.app/api/v1/stores');
+        $data = $res->getBody()->getContents();
+        $r = json_decode($data);
         dd($r->data);
-return view('backend.events.create');
+        return view('backend.events.create');
     }
 
     /**
@@ -45,41 +46,38 @@ return view('backend.events.create');
      */
     public function store(Request $request)
     {
-//      dd($request);  //
+        //      dd($request);  //
         try {
-            $validation=$this->validate($request,[
-                'title'=>'required',
-                'description'=>'required',
-                'time'=>'required',
-                'place'=>'required',
-                'image'=>'required|file|image'
+            $validation = $this->validate($request, [
+                'title' => 'required',
+                'description' => 'required',
+                'time' => 'required',
+                'place' => 'required',
+                'image' => 'required|file|image'
             ]);
 
-            if (request()->hasFile('image')){/**/
-                if ($request->file('image')) {//**
-//                    $extension = $request->image->getClientOriginalExtension();
-                    $fileName=$request->image->getClientOriginalName();
+            if (request()->hasFile('image')) {/**/
+                if ($request->file('image')) { //**
+                    //                    $extension = $request->image->getClientOriginalExtension();
+                    $fileName = $request->image->getClientOriginalName();
                     $path =  $request->image->move(public_path('uploads/events'), $fileName);
-//***
-                    $data['image']=$fileName;
+                    //***
+                    $data['image'] = $fileName;
                 }
             }
-            $eventdata=[
-                'title'=>$request->title,
-                'description'=>$request->description,
-                'time'=>$request->time,
-                'place'=>$request->place,
-                'image'=>$fileName
+            $eventdata = [
+                'title' => $request->title,
+                'description' => $request->description,
+                'time' => $request->time,
+                'place' => $request->place,
+                'image' => $fileName
             ];
-//            dd($eventdata);
+            //            dd($eventdata);
             Event::create($eventdata);
-         return   redirect()->back();
-        }catch (Exception $e){
-          return  redirect()->back();
+            return   redirect()->back();
+        } catch (Exception $e) {
+            return  redirect()->back();
         }
-
-
-
     }
 
     /**
