@@ -9,6 +9,13 @@ Breadcrumbs::for('dashboard', function ($trail) {
     $trail->push('Dashboard', route('home.dashboard'));
 });
 
+// Dashboard > Profile
+Breadcrumbs::for('home.profile', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Profile', route('home.profile'));
+});
+
+
 // Dashboard > User
 Breadcrumbs::for('home.users', function ($trail) {
     $trail->parent('dashboard');

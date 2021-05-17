@@ -53,7 +53,7 @@ Auth::routes();
 Route::group(['as' => 'home.', 'prefix' => 'home', 'middleware' => 'auth'], function () {
     Route::get('/', 'Backend\DashboardController@index')->name('dashboard');
     Route::get('/profile', 'Backend\ProfileController@edit')->name('profile');
-    Route::put('/profile', 'Backend\ProfileController@update')->name('profile');
+    Route::put('/profile-update/{user}', 'Backend\ProfileController@update')->name('profile-update');
     Route::put('change-password/{user}', "Backend\ProfileController@changePassword")->name('change-password');
 
     Route::group(['as' => 'users.', 'prefix' => 'users'], function () {

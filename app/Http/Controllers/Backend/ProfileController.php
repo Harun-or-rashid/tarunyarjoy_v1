@@ -5,51 +5,10 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
-    {
-        //
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -58,7 +17,9 @@ class ProfileController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('backend.profile', [
+            'user' => auth()->user()
+        ]);
     }
 
     /**
@@ -70,17 +31,55 @@ class ProfileController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
-    }
+        $this->validate($request, [
+            'name' => 'required|string',
+            'nid' => 'required|string|unique:users,nid,' . $user->id,
+            'phone' => 'required|string',
+            'email' => 'required|string|unique:users,email,' . $user->id,
+            'image' => 'nullable|file',
+        ]);
 
+        $data = [
+            "name" => $request->name,
+            "nid" => $request->nid,
+            "email" => $request->email,
+            "phone" => $request->phone,
+        ];
+
+        if ($request->hasFile('image')) {
+            if (Storage::disk("local")->exists($user->image)) {
+                Storage::disk("local")->delete($user->image);
+            }
+            $data['image'] = Storage::disk("local")->put("uploads\\users\\images", $request->image);
+        }
+
+        $user->fill($data);
+
+        if ($user->save()) {
+            return back()->with('success', 'Profile updated successfully!');
+        }
+        return redirect()->route('home.profile')->with('success', 'Something went wrong!');
+    }
     /**
-     * Remove the specified resource from storage.
+     * Update the specified resource in storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Illuminate\Http\Request  $request
+     * @param  User $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function changePassword(Request $request, User $user)
     {
-        //
+        $this->validate($request, [
+            "password" => "required|string|min:8|max:25|confirmed",
+        ]);
+
+        $data = [
+            "password" => bcrypt($request->password),
+        ];
+
+        if ($user->update($data)) {
+            return back()->with('success', 'User password changed successfully!');
+        }
+        return redirect()->route('home.users.index')->with('error', 'Something went wrong!');
     }
 }
