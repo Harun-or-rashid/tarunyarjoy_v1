@@ -23,7 +23,7 @@
                                 <input type="text" id="name" name="name" class="form-control" placeholder="John Doe"
                                     required />
                                 @error('name')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -34,7 +34,7 @@
                                 <input type="text" id="nid" name="nid" class="form-control" placeholder="xxxx-xxxx-xxxx"
                                     required />
                                 @error('nid')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -45,7 +45,7 @@
                                 <input type="text" id="phone" name="phone" class="form-control" placeholder="+880xxxxxxxx"
                                     required />
                                 @error('phone')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -55,7 +55,7 @@
                                 <input type="email" id="email" name="email" class="form-control"
                                     placeholder="john.doe@mail.com" required />
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -65,7 +65,7 @@
                                 <input type="password" id="password" name="password" class="form-control"
                                     placeholder="*********" required />
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -75,7 +75,7 @@
                                 <input type="password" id="password_confirmation" name="password_confirmation"
                                     class="form-control" placeholder="********" required />
                                 @error('password_confirmation')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -84,7 +84,7 @@
                                 <label for="image">Profile Picture</label>
                                 <input type="file" id="image" class="form-control" name="image" accept="image/*">
                                 @error('image')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -97,7 +97,7 @@
                                     @endforeach
                                 </select>
                                 @error('image')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror

@@ -52,6 +52,9 @@ Auth::routes();
 
 Route::group(['as' => 'home.', 'prefix' => 'home', 'middleware' => 'auth'], function () {
     Route::get('/', 'Backend\DashboardController@index')->name('dashboard');
+    Route::get('/profile', 'Backend\ProfileController@edit')->name('profile');
+    Route::put('/profile', 'Backend\ProfileController@update')->name('profile');
+    Route::put('change-password/{user}', "Backend\ProfileController@changePassword")->name('change-password');
 
     Route::group(['as' => 'users.', 'prefix' => 'users'], function () {
 
@@ -69,6 +72,24 @@ Route::group(['as' => 'home.', 'prefix' => 'home', 'middleware' => 'auth'], func
             Route::put('/{user}', "Backend\UserController@update")->name('update');
             Route::put('change-password/{user}', "Backend\UserController@changePassword")->name('change-password');
             Route::delete('/{user}', "Backend\UserController@destroy")->name('delete');
+        });
+    });
+
+    Route::group(['as' => 'events.', 'prefix' => 'events'], function () {
+
+        Route::get('/', "Backend\EventController@index")->name('index');
+
+        Route::group(["middleware" => 'role:Admin'], function () {
+            Route::get('create', "Backend\EventController@create")->name('create');
+            Route::post('/', "Backend\EventController@store")->name('store');
+        });
+
+        Route::get('/{event}', "Backend\EventController@show")->name('show');
+
+        Route::group(["middleware" => 'role:Admin'], function () {
+            Route::get('edit/{event}', "Backend\EventController@edit")->name('edit');
+            Route::put('/{event}', "Backend\EventController@update")->name('update');
+            Route::delete('/{event}', "Backend\EventController@destroy")->name('delete');
         });
     });
 });

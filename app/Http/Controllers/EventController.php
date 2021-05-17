@@ -34,8 +34,8 @@ class EventController extends Controller
         $res = $client->get('https://thefoodstore.app/api/v1/stores');
         $data = $res->getBody()->getContents();
         $r = json_decode($data);
-        dd($r->data);
-        return view('backend.events.create');
+        // dd($r->data);
+        return view('backend.event.create');
     }
 
     /**

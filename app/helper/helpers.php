@@ -7,10 +7,11 @@
  */
 function roleText(): string
 {
-    if (auth()->check()) {
-        $role = ucwords(join(' ', auth()->user()->getRoleNames()->all()));
-        return $role;
-    }
+    return auth()->user()->role();
+    // if (auth()->check()) {
+    //     $role = ucwords(join(' ', auth()->user()->getRoleNames()->all()));
+    //     return $role;
+    // }
 }
 
 /**

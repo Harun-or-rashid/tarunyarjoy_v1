@@ -25,28 +25,33 @@
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
-            <li class="active">
+            <li class="{{ set_active('home') }}">
                 <a href="{{ route('home.dashboard') }}">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
 
-            <li class="{{ active(route('home.users.index')) }}">
+            <li class="{{ set_active('home/users') }}">
                 <a href="{{ route('home.users.index') }}">
                     <i class="fa fa-user"></i> <span>Users</span>
                 </a>
             </li>
 
-            <li class="treeview">
-                <a href="#">
+            <li class="treeview {{ set_active('home/events') }}">
+                <a href="javascript::void(0)">
                     <i class="fa fa-laptop"></i>
                     <span>Create an Event</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/UI/general.html"><i class="fa fa-angle-double-right"></i>Events</a></li>
-                    <li><a href="pages/UI/icons.html"><i class="fa fa-angle-double-right"></i> Create New</a></li>
-
+                    <li class="{{ set_active('home/events') }}"><a href="{{ route('home.events.index') }}"><i
+                                class="fa fa-angle-double-right"></i>Events</a>
+                    </li>
+                    <li class="{{ set_active('home/users/create') }}">
+                        <a href="{{ route('home.events.create') }}">
+                            <i class="fa fa-angle-double-right"></i> Create New
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li class="treeview">

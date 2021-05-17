@@ -9,7 +9,6 @@
                 @if ($breadcrumb->url && !$loop->last)
                     <li>
                         <a href="{{ $breadcrumb->url }}">
-                            <i class="fa fa-dashboard"></i>
                             {{ $breadcrumb->title }}
                         </a>
                     </li>
