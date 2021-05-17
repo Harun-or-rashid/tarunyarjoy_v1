@@ -31,6 +31,11 @@
                 </a>
             </li>
 
+            <li class="{{ active(route('home.users.index')) }}">
+                <a href="{{ route('home.users.index') }}">
+                    <i class="fa fa-user"></i> <span>Users</span>
+                </a>
+            </li>
 
             <li class="treeview">
                 <a href="#">

@@ -30,4 +30,7 @@
 <script src="{{ asset('assets/js') }}/AdminLTE/app.js" type="text/javascript"></script>
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('assets/js') }}/AdminLTE/dashboard.js" type="text/javascript"></script>
+{{-- <script src="{{ asset('assets/js') }}/AdminLTE/dashboard.js" type="text/javascript"></script> --}}
+<script src="{{ asset('assets') }}/js/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+<script src="{{ asset('assets') }}/js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+@stack('script')

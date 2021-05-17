@@ -52,4 +52,23 @@ Auth::routes();
 
 Route::group(['as' => 'home.', 'prefix' => 'home', 'middleware' => 'auth'], function () {
     Route::get('/', 'Backend\DashboardController@index')->name('dashboard');
+
+    Route::group(['as' => 'users.', 'prefix' => 'users'], function () {
+
+        Route::get('/', "Backend\UserController@index")->name('index');
+
+        Route::group(["middleware" => 'role:Admin'], function () {
+            Route::get('create', "Backend\UserController@create")->name('create');
+            Route::post('/', "Backend\UserController@store")->name('store');
+        });
+
+        Route::get('/{user}', "Backend\UserController@show")->name('show');
+
+        Route::group(["middleware" => 'role:Admin'], function () {
+            Route::get('edit/{user}', "Backend\UserController@edit")->name('edit');
+            Route::put('/{user}', "Backend\UserController@update")->name('update');
+            Route::put('change-password/{user}', "Backend\UserController@changePassword")->name('change-password');
+            Route::delete('/{user}', "Backend\UserController@destroy")->name('delete');
+        });
+    });
 });

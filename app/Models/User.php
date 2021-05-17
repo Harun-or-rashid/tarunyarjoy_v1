@@ -35,4 +35,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * role return User Most Power Role name 
+     *
+     * @return string
+     */
+    public function role(): string
+    {
+        $roles = $this->getRoleNames()->all();
+        foreach (["Admin", "Volunteer", "Donor"] as $item) {
+            if (in_array($item, $roles)) {
+                return $item;
+            }
+        }
+        return "No Role";
+    }
 }

@@ -13,6 +13,7 @@
         <aside class="right-side">
             <!-- Content Header (Page header) -->
             @yield('breadcrumbs', Breadcrumbs::render('dashboard'))
+            @include('layouts.flash')
             <!-- Main content -->
             @yield('main_content')
         </aside><!-- /.right-side -->
