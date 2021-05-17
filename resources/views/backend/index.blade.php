@@ -33,20 +33,8 @@
     <![endif]-->
 </head>
 
-<body class="skin-black">
-    <!-- header logo: style can be found in header.less -->
-    @include('backend.partial.header')
-    <div class="wrapper row-offcanvas row-offcanvas-left">
-        <!-- Left side column. contains the logo and sidebar -->
-        @include('backend.partial.sidebar')
-
-        <!-- Right side column. Contains the navbar and content of the page -->
-        <!-- /.right-side -->
-    </div><!-- ./wrapper -->
-
-    <!-- add new calendar event modal -->
-
-
+<body class="bg-black">
+    @yield('app')
     @include('backend.partial.footer')
 </body>
 
