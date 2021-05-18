@@ -12,9 +12,7 @@
 */
 
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
+Route::get('/', 'Frontend\HomeController@index')->name('landing');
 // Route::get('/createmember', function () {
 //     return view('backend.user.create');
 // })->middleware('auth');
@@ -55,6 +53,10 @@ Route::group(['as' => 'home.', 'prefix' => 'home', 'middleware' => 'auth'], func
     Route::get('/profile', 'Backend\ProfileController@edit')->name('profile');
     Route::put('/profile-update/{user}', 'Backend\ProfileController@update')->name('profile-update');
     Route::put('change-password/{user}', "Backend\ProfileController@changePassword")->name('change-password');
+    Route::group(['middleware' => ['role:Donor']], function () {
+        Route::get('donate', 'StripePaymentController@donate')->name('donate');
+        Route::post('stripe', 'StripePaymentController@stripePost')->name('stripe.post');
+    });
 
     Route::group(['as' => 'users.', 'prefix' => 'users'], function () {
 

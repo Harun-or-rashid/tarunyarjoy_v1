@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>CMS @yield('title')</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- bootstrap 3.0.2 -->
     <link href="{{ asset('assets/css') }}/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -24,6 +25,12 @@
         type="text/css" />
     <!-- Theme style -->
     <link href="{{ asset('assets/css') }}/AdminLTE.css" rel="stylesheet" type="text/css" />
+    <style>
+        .hidden {
+            display: none;
+        }
+
+    </style>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

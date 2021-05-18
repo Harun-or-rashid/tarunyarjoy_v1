@@ -23,8 +23,9 @@
 
                     <h2 class="carousel-title bounceInDown animated slow">Because they need your help</h2>
                     <h4 class="carousel-subtitle bounceInUp animated slow ">Do not let them down</h4>
-                    <a href="#" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow" data-toggle="modal"
-                        data-target="#donateModal">DONATE NOW</a>
+                    {{-- <a href="{{ route('home.donate') }}" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow"
+                        data-toggle="modal" data-target="#donateModal">DONATE NOW</a> --}}
+                    <a href="{{ route('home.donate') }}" class="btn btn-lg btn-secondary hidden-xs">DONATE NOW</a>
 
                 </div> <!-- /.carousel-caption -->
 
@@ -66,8 +67,9 @@
                     <h2 class="carousel-title bounceInDown animated slow">A penny is a lot of money, if you have not got
                         a penny.</h2>
                     <h4 class="carousel-subtitle bounceInUp animated slow">You can make the diffrence !</h4>
-                    <a href="#" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow" data-toggle="modal"
-                        data-target="#donateModal">DONATE NOW</a>
+                    {{-- <a href="{{ route('home.donate') }}" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow"
+                        data-toggle="modal" data-target="#donateModal">DONATE NOW</a> --}}
+                    <a href="{{ route('home.donate') }}" class="btn btn-lg btn-secondary hidden-xs">DONATE NOW</a>
 
                 </div> <!-- /.carousel-caption -->
 
@@ -300,7 +302,9 @@
 
                     <div class="btn-holder text-center">
 
-                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#donateModal"> DONATE
+                        {{-- <a href="{{route('home.donate')}}" class="btn btn-primary"> DONATE
+                            NOW</a> --}}
+                        <a href="{{ route('home.donate') }}" class="btn btn-primary"> DONATE
                             NOW</a>
 
                     </div>
@@ -332,7 +336,7 @@
 
                     <div class="btn-holder text-center">
 
-                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#donateModal"> DONATE
+                        <a href="{{ route('home.donate') }}" class="btn btn-primary"> DONATE
                             NOW</a>
 
                     </div>
@@ -365,7 +369,7 @@
 
                     <div class="btn-holder text-center">
 
-                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#donateModal"> DONATE
+                        <a href="{{ route('home.donate') }}" class="btn btn-primary"> DONATE
                             NOW</a>
 
                     </div>
@@ -397,7 +401,7 @@
 
                     <div class="btn-holder text-center">
 
-                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#donateModal"> DONATE
+                        <a href="{{ route('home.donate') }}" class="btn btn-primary"> DONATE
                             NOW</a>
 
                     </div>
@@ -407,6 +411,90 @@
                 </div> <!-- /.cause -->
 
             </div>
+
+        </div>
+
+    </div>
+
+</div> <!-- /.our-causes -->
+
+
+<div class="section-home our-causes animate-onscroll fadeIn">
+
+    <div class="container">
+
+        <h2 class="title-style-1">Our Events <span class="title-under"></span></h2>
+
+        <div class="row">
+            @foreach ($events as $event)
+                <div class="col-md-3 col-sm-6">
+
+                    <div class="cause">
+
+                        <img src="{{ asset($event->image) }}" alt="{{ $event->title }}" class="cause-img">
+
+
+                        <h4 class="cause-title"><a href="#">{{ $event->title }} </a></h4>
+                        <div class="cause-details">
+                            {{ $event->description }}
+                        </div>
+                        @if ($event->isComing())
+                            <h4 class="cause-title">Upcoming Event</h4>
+                        @else
+                            <h4 class="cause-title">Completed Event</h4>
+                        @endif
+                        <h4 class="cause-title">{{ Carbon\Carbon::create($event->event_date)->diffForHumans() }}</h4>
+                        <div class="btn-holder text-center">
+
+                            <a href="{{ route('home.donate') }}" class="btn btn-primary"> DONATE
+                                NOW</a>
+
+                        </div>
+
+
+
+                    </div> <!-- /.cause -->
+
+                </div>
+            @endforeach
+
+
+        </div>
+
+    </div>
+
+</div> <!-- /.our-causes -->
+
+
+<div class="section-home our-causes animate-onscroll fadeIn">
+
+    <div class="container">
+
+        <h2 class="title-style-1">Top Donor <span class="title-under"></span></h2>
+
+        <div class="row">
+            @foreach (\App\Models\User::role('Donor')->where('donation', '!=', '0')->orderBy('donation', 'DESC')->take(4)->get()
+    as $index => $user)
+                <div class="col-md-3 col-sm-6">
+
+                    <div class="cause">
+
+                        <img src="{{ asset($user->image ?? 'assets/img/user.png') }}" alt="{{ $user->name }}"
+                            class="cause-img">
+
+
+                        <h4 class="cause-title"><a href="#">{{ $user->name }} </a></h4>
+                        <div class="cause-details">
+                            {{ donationQuate($index) }}
+                        </div>
+
+
+
+                    </div> <!-- /.cause -->
+
+                </div>
+            @endforeach
+
 
         </div>
 

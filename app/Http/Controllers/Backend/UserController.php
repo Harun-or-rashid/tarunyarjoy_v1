@@ -62,6 +62,7 @@ class UserController extends Controller
         $user = new User($data);
         if ($user->save()) {
             $user->assignRole($request->role);
+            $user->createAsStripeCustomer();
             return back()->with('success', 'User created successfully!');
         }
         return redirect()->route('home.users.index')->with('success', 'Something went wrong!');

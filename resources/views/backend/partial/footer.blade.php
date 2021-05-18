@@ -33,4 +33,12 @@
 {{-- <script src="{{ asset('assets/js') }}/AdminLTE/dashboard.js" type="text/javascript"></script> --}}
 <script src="{{ asset('assets') }}/js/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
 <script src="{{ asset('assets') }}/js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+<script>
+    $.ajaxSetup({
+        headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+        }
+    });
+
+</script>
 @stack('script')

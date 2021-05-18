@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Laravel\Cashier\Billable;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -9,7 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasRoles;
+    use Notifiable, HasRoles, Billable;
 
     /**
      * The attributes that are mass assignable.
@@ -37,11 +38,12 @@ class User extends Authenticatable
     ];
 
     /**
-     * role return User Most Power Role name 
+     * roleNameC return User Most Power Role name 
      *
      * @return string
      */
-    public function role(): string
+
+    public function roleNameC(): string
     {
         $roles = $this->getRoleNames()->all();
         foreach (["Admin", "Volunteer", "Donor"] as $item) {

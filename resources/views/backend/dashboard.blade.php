@@ -11,7 +11,7 @@
                 <div class="small-box bg-aqua">
                     <div class="inner">
                         <h3>
-                            {{ \App\Models\Request::where('status', 'request')->count() }}
+                            {{ $newRequestCount }}
                         </h3>
                         <p>
                             New Requests
@@ -30,15 +30,15 @@
                 <div class="small-box bg-green">
                     <div class="inner">
                         <h3>
-                            53<sup style="font-size: 20px">%</sup>
+                            {{ $donation }}
                         </h3>
                         <p>
                             Donation
                         </p>
                     </div>
                     <div class="icon">
-                        <i class="ion"
-                            style="background: url('https://api.iconify.design/carbon:currency-dollar.svg') no-repeat center center / contain;"></i>
+                        {{-- <i class="ion ion-stats-bars"></i> --}}
+                        <i class="fa fa-dollar"></i>
                     </div>
                     <a href="javascript::void(0)" class="small-box-footer">
                         More info <i class="fa fa-arrow-circle-right"></i>
@@ -50,10 +50,10 @@
                 <div class="small-box bg-yellow">
                     <div class="inner">
                         <h3>
-                            44
+                            {{ $donorCount }}
                         </h3>
                         <p>
-                            User Registrations
+                            Donor
                         </p>
                     </div>
                     <div class="icon">
@@ -69,14 +69,14 @@
                 <div class="small-box bg-red">
                     <div class="inner">
                         <h3>
-                            65
+                            {{ $volunteerCount }}
                         </h3>
                         <p>
-                            Unique Visitors
+                            Volunteer
                         </p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-pie-graph"></i>
+                        <i class="ion ion-person-add"></i>
                     </div>
                     <a href="javascript::void(0)" class="small-box-footer">
                         More info <i class="fa fa-arrow-circle-right"></i>

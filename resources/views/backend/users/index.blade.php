@@ -38,7 +38,7 @@
                                         </td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->phone }}</td>
-                                        <td>{{ $user->role() }}</td>
+                                        <td>{{ $user->roleNameC() }}</td>
                                         <td style="display: flex; justify-content:space-around; align-items: center;">
                                             <a class="btn btn-success" href="{{ route('home.users.show', $user->id) }}">
                                                 show

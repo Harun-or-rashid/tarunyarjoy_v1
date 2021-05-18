@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,14 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view("backend.dashboard");
+        $data = [
+            'newRequestCount' => \App\Models\Request::where('status', 'request')->count(),
+            'donation' => User::sum('donation'),
+            'volunteerCount' => User::role('Volunteer')->count(),
+            'donorCount' => User::role('Donor')->count(),
+        ];
+
+        return view("backend.dashboard", $data);
     }
 
     /**

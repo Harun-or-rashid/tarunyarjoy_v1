@@ -30,7 +30,7 @@
                                 <label for="nid">NID:&nbsp;</label>
                                 <span>{{ $user->nid }}</span> <br>
                                 <label for="role">Role:&nbsp;</label>
-                                <span>{{ $user->role() }}</span> <br>
+                                <span>{{ $user->roleNameC() }}</span> <br>
                             </div>
                         </div>
                     </div><!-- /.box-body -->

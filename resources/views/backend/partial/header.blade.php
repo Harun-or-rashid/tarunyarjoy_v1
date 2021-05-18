@@ -29,7 +29,7 @@
                                     <!-- start message -->
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="{{ asset('assets/img') }}/avatar3.png" class="img-circle"
+                                            <img src="{{ asset(auth()->user()->image) }}" class="img-circle"
                                                 alt="User Image" />
                                         </div>
                                         <h4>
@@ -230,7 +230,8 @@
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header bg-light-blue">
-                            <img src="{{ asset('assets/img') }}/avatar3.png" class="img-circle" alt="User Image" />
+                            <img src="{{ asset(auth()->user()->image ?? 'assets/img/avatar5.png') }}"
+                                class="img-circle" alt="User Image" />
                             <p>
                                 {{ auth()->user()->name }} - Web Developer
                                 <small>Member since Nov. 2012</small>

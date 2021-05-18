@@ -14,9 +14,11 @@ class UserSeeder extends Seeder
     {
         factory(User::class, 10)->create()->each(function ($user) {
             $user->assignRole('Donor');
+            $user->createAsStripeCustomer();
         });
         factory(User::class, 10)->create()->each(function ($user) {
             $user->assignRole(['Volunteer', 'Donor']);
+            $user->createAsStripeCustomer();
         });
         $user = User::create([
             'name' => "Admin",
@@ -27,7 +29,9 @@ class UserSeeder extends Seeder
             'remember_token' => Str::random(10),
             'status' => 1,
             'phone' => '+8801726257333',
+            'image' => randUserAvatar(),
         ]);
         $user->assignRole(['Admin', 'Donor']);
+        $user->createAsStripeCustomer();
     }
 }
