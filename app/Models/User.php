@@ -51,4 +51,14 @@ class User extends Authenticatable
         }
         return "No Role";
     }
+
+    /**
+     * products
+     *
+     * @return void
+     */
+    public function products()
+    {
+        return $this->belongsToMany('App\Models\Product')->withPivot('quantity');
+    }
 }

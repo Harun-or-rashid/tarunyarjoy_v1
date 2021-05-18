@@ -92,4 +92,36 @@ Route::group(['as' => 'home.', 'prefix' => 'home', 'middleware' => 'auth'], func
             Route::delete('/{event}', "Backend\EventController@destroy")->name('delete');
         });
     });
+
+    Route::group(['as' => 'products.', 'prefix' => 'products'], function () {
+
+        Route::get('/', "Backend\ProductController@index")->name('index');
+
+        Route::group(["middleware" => 'role:Admin'], function () {
+            Route::get('create', "Backend\ProductController@create")->name('create');
+            Route::post('/', "Backend\ProductController@store")->name('store');
+        });
+
+        Route::get('/{product}', "Backend\ProductController@show")->name('show');
+
+        Route::group(["middleware" => 'role:Admin'], function () {
+            Route::get('edit/{product}', "Backend\ProductController@edit")->name('edit');
+            Route::put('/{product}', "Backend\ProductController@update")->name('update');
+            Route::delete('/{product}', "Backend\ProductController@destroy")->name('delete');
+        });
+    });
+
+    Route::group(['as' => 'requests.', 'prefix' => 'requests'], function () {
+
+        Route::get('/', "Backend\RequestController@index")->name('index');
+
+        Route::get('create/{product}', "Backend\RequestController@create")->name('create');
+        Route::post('store/{product}', "Backend\RequestController@store")->name('store');
+        Route::get('/{productRequest}', "Backend\RequestController@show")->name('show');
+
+        Route::group(["middleware" => 'role:Admin'], function () {
+            Route::put('accept/{productRequest}', "Backend\RequestController@accept")->name('accept');
+            Route::put('reject/{productRequest}', "Backend\RequestController@reject")->name('reject');
+        });
+    });
 });

@@ -27,5 +27,6 @@ $factory->define(User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
         'status' => 1,
         'phone' => '+8801726257333',
+        'image' => randUserAvatar(),
     ];
 });

@@ -47,11 +47,13 @@
                     <li class="{{ set_active('home/events') }}"><a href="{{ route('home.events.index') }}"><i
                                 class="fa fa-angle-double-right"></i>Events</a>
                     </li>
+                    @role('Admin')
                     <li class="{{ set_active('home/users/create') }}">
                         <a href="{{ route('home.events.create') }}">
                             <i class="fa fa-angle-double-right"></i> Create New
                         </a>
                     </li>
+                    @endrole
                 </ul>
             </li>
             <li class="treeview">
@@ -66,15 +68,23 @@
 
                 </ul>
             </li>
-            <li class="treeview">
-                <a href="#">
+            <li class="treeview {{ set_active('home/products') }}">
+                <a href="javascript::void(0)">
                     <i class="fa fa-shopping-cart"></i>
                     <span>Manage Products</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/UI/general.html"><i class="fa fa-angle-double-right"></i>Products</a></li>
-                    <li><a href="pages/UI/icons.html"><i class="fa fa-angle-double-right"></i>All Requests</a></li>
+                    <li class="{{ set_active('home/products') }}">
+                        <a href="{{ route('home.products.index') }}">
+                            <i class="fa fa-angle-double-right"></i>Products
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="{{ route('home.requests.index') }}">
+                            <i class="fa fa-angle-double-right"></i>All Requests
+                        </a>
+                    </li>
 
                 </ul>
             </li>
