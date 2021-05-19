@@ -60,7 +60,7 @@ class EventController extends Controller
         if ($event->save()) {
             return back()->with('success', 'Event created successfully!');
         }
-        return redirect()->route('home.events.index')->with('success', 'Something went wrong!');
+        return back()->with('error', 'Something went wrong!');
     }
 
     /**
@@ -125,7 +125,7 @@ class EventController extends Controller
         if ($event->save()) {
             return back()->with('success', 'Event updated successfully!');
         }
-        return redirect()->route('home.events.index')->with('success', 'Something went wrong!');
+        return back()->with('error', 'Something went wrong!');
     }
 
     /**
@@ -142,6 +142,6 @@ class EventController extends Controller
         if ($event->delete()) {
             return back()->with('success', 'Event deleted successfully!');
         }
-        return redirect()->route('home.events.index')->with('success', 'Something went wrong!');
+        return back()->with('error', 'Something went wrong!');
     }
 }

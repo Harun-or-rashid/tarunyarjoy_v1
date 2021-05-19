@@ -44,8 +44,7 @@
 
                     <h2 class="carousel-title bounceInDown animated slow">Together we can improve their lives</h2>
                     <h4 class="carousel-subtitle bounceInUp animated slow"> So let's do it !</h4>
-                    <a href="#" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated" data-toggle="modal"
-                        data-target="#donateModal">DONATE NOW</a>
+                    <a href="{{ route('home.donate') }}" class="btn btn-lg btn-secondary hidden-xs">DONATE NOW</a>
 
                 </div> <!-- /.carousel-caption -->
 

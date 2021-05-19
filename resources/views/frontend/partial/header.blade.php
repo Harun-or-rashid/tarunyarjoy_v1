@@ -107,8 +107,24 @@
 
                             {{-- </li> --}}
                             <li><a href="#">CONTACT US</a></li>
-                            <li><a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Want to
-                                    be a Volunteer !</a></li>
+                            @guest
+                                <li><a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Want to
+                                        be a Volunteer !</a></li>
+                            @endguest
+                            @role('Admin|Volunteer')
+                            <li>
+                                <a href="{{ route('home.dashboard') }}">{{ auth()->user()->name }}</a>
+                            </li>
+                            @elserole('Donor')
+                            @if (auth()->user()->status == 0)
+                                <li><a href="{{ route('volunteer') }}">Want to be a Volunteer !</a></li>
+                            @else
+                                <li><a href="javascript::void(0)">Already requested</a></li>
+                            @endif
+                            <li>
+                                <a href="{{ route('home.dashboard') }}">{{ auth()->user()->name }}</a>
+                            </li>
+                            @endrole
 
 
                         </ul>
@@ -134,22 +150,16 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="form-box" action="{{ url('/userstore') }}" method="post"
+                    <form class="form-box" action="{{ route('register') }}" method="post"
                         enctype="multipart/form-data">
-                        <h3 class="form-box success">Registration for Volunteer</h3><br>
                         @csrf
+                        <h3 class="form-box success">Registration for Volunteer</h3><br>
+                        <input type="hidden" name="status" value="on">
                         <div class="form-group ">
                             <label for="exampleFormControlInput1">Name</label>
                             <input type="text" class="form-control" id="exampleFormControlInput1"
                                 placeholder="your name like 'Ringku Islam'" name="name">
                             {{ $errors->first('name') }}
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Email address</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" name="email"
-                                placeholder="name@example.com">
-                            {{ $errors->first('email') }}
                         </div>
 
                         <div class="form-group">
@@ -160,20 +170,35 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="exampleFormControlInput1">Email address</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" name="email"
+                                placeholder="name@example.com">
+                            {{ $errors->first('email') }}
+                        </div>
+
+                        <div class="form-group">
                             <label for="exampleFormControlInput1">Password</label>
                             <input type="password" class="form-control" id="exampleFormControlInput1" name="password"
                                 placeholder="Password">
                             {{ $errors->first('password') }}
                         </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Confirm Password</label>
+                            <input type="password" class="form-control" id="exampleFormControlInput1"
+                                name="password_confirmation" placeholder="Password">
+                            {{ $errors->first('password_confirmation') }}
+                        </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">NID No</label>
-                            <input type="text" name="nid" placeholder="give your national Id card no">
+                            <input type="text" class="form-control" name="nid"
+                                placeholder="give your national Id card no">
                             {{ $errors->first('nid') }}
                         </div>
 
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Upload an Image</label>
-                            <input type="file" class="btn-file" id="exampleFormControlInput1" name="image">
+                            <input type="file" id="exampleFormControlInput1" name="image" class="form-control">
                             {{ $errors->first('image') }}
                         </div>
                         <br>
@@ -189,7 +214,6 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send message</button>
                 </div>
             </div>
         </div>

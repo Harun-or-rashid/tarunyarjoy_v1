@@ -57,17 +57,10 @@
                     @endrole
                 </ul>
             </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-group"></i>
-                    <span>Manage Membership</span>
-                    <i class="fa fa-angle-left pull-right"></i>
+            <li class="{{ set_active('home/members') }}">
+                <a href="{{ route('home.members.index') }}">
+                    <i class="fa fa-group"></i>Members
                 </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/UI/general.html"><i class="fa fa-angle-double-right"></i>Members</a></li>
-                    <li><a href="pages/UI/icons.html"><i class="fa fa-angle-double-right"></i>All Requests</a></li>
-
-                </ul>
             </li>
             <li class="treeview {{ set_active('home/products') }}">
                 <a href="javascript::void(0)">
@@ -90,7 +83,7 @@
                 </ul>
             </li>
 
-            <li class="treeview">
+            {{-- <li class="treeview">
                 <a href="#">
                     <i class="fa fa-folder"></i> <span>Examples</span>
                     <i class="fa fa-angle-left pull-right"></i>
@@ -106,7 +99,7 @@
                     <li><a href="pages/examples/500.html"><i class="fa fa-angle-double-right"></i> 500 Error</a></li>
                     <li><a href="pages/examples/blank.html"><i class="fa fa-angle-double-right"></i> Blank Page</a></li>
                 </ul>
-            </li>
+            </li> --}}
         </ul>
     </section>
     <!-- /.sidebar -->

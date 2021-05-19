@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -60,9 +61,12 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'nid' => ['required', 'string', 'max:255'],
+            'nid' => ['required', 'string', 'max:13', 'min:10'],
+            'phone' => ['required', 'string', 'max:13', 'min:9'],
+            'image' => ['nullable', 'file'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'status' => ['nullable', 'string', 'max:3'],
         ]);
     }
 
@@ -74,13 +78,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $image = Storage::disk("local")->put("uploads\\users\\images", $data['image']) ?? randUserAvatar();
         $user = User::create([
             'name' => $data['name'],
             'nid' => $data['nid'],
+            'phone' => $data['phone'],
+            'image' => $image,
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'status' => $data['status'] == 'on' ? 1 : 0,
         ]);
-        $user->assignRole('donor');
+        $user->assignRole('Donor');
         return $user;
     }
 }

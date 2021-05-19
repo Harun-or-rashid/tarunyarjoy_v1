@@ -24,6 +24,16 @@
                         </span>
                     @enderror
                 </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone No:</label>
+                    <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone" />
+                    @error('phone')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" class="form-control" placeholder="john.doe@mail.com" />
@@ -51,6 +61,18 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
+                </div>
+                <div class="form-group">
+                    <input type="file" id="image" name="image" class="form-control" accept="image/*" />
+                    @error('image')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="status" name="status" class="form-control" />
+                    <label for="status">Want to be a volunteer</label>
                 </div>
             </div>
             <div class="footer">

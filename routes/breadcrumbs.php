@@ -105,3 +105,15 @@ Breadcrumbs::for('home.requests.create', function ($trail) {
     $trail->parent('home.requests');
     $trail->push('Create', route('home.requests.create'));
 });
+
+// Dashboard > Member
+Breadcrumbs::for('home.members', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Member', route('home.members.index'));
+});
+
+// Dashboard > Member > Show
+Breadcrumbs::for('home.members.show', function ($trail, $id) {
+    $trail->parent('home.members');
+    $trail->push('Show', route('home.members.show', $id));
+});

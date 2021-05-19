@@ -58,7 +58,7 @@ class ProfileController extends Controller
         if ($user->save()) {
             return back()->with('success', 'Profile updated successfully!');
         }
-        return redirect()->route('home.profile')->with('success', 'Something went wrong!');
+        return back()->with('error', 'Something went wrong!');
     }
     /**
      * Update the specified resource in storage.
@@ -80,6 +80,6 @@ class ProfileController extends Controller
         if ($user->update($data)) {
             return back()->with('success', 'User password changed successfully!');
         }
-        return redirect()->route('home.users.index')->with('error', 'Something went wrong!');
+        return back()->with('error', 'Something went wrong!');
     }
 }

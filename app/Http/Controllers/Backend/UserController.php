@@ -65,7 +65,7 @@ class UserController extends Controller
             $user->createAsStripeCustomer();
             return back()->with('success', 'User created successfully!');
         }
-        return redirect()->route('home.users.index')->with('success', 'Something went wrong!');
+        return back()->with('error', 'Something went wrong!');
     }
 
     /**
@@ -132,7 +132,7 @@ class UserController extends Controller
             $user->syncRoles($request->role);
             return back()->with('success', 'User updated successfully!');
         }
-        return redirect()->route('home.users.index')->with('success', 'Something went wrong!');
+        return back()->with('error', 'Something went wrong!');
     }
 
     /**
@@ -149,7 +149,7 @@ class UserController extends Controller
         if ($user->delete()) {
             return back()->with('success', 'User deleted successfully!');
         }
-        return redirect()->route('home.users.index')->with('success', 'Something went wrong!');
+        return back()->with('error', 'Something went wrong!');
     }
     /**
      * Update the specified resource in storage.
@@ -170,6 +170,6 @@ class UserController extends Controller
         if ($user->update($data)) {
             return back()->with('success', 'User password changed successfully!');
         }
-        return redirect()->route('home.users.index')->with('success', 'Something went wrong!');
+        return back()->with('error', 'Something went wrong!');
     }
 }
