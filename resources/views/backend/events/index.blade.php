@@ -8,7 +8,7 @@
             <div class="col-xs-12">
                 @role('Admin')
                 <a href="{{ route('home.events.create') }}" class="btn btn-info">
-                    Add User&nbsp;<i class="fa fa-user" aria-hidden="true"></i>
+                    Add Event
                 </a>
                 <br> <br>
                 @endrole

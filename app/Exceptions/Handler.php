@@ -48,7 +48,7 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         if ($exception instanceof UnauthorizedException) {
-            return back();
+            return back('login');
         }
         return parent::render($request, $exception);
     }
