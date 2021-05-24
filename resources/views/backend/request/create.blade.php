@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row" style="display:flex; justify-content: center;">
             <div class="col-md-8">
-                <a href="{{ route('home.events.index') }}" class="btn btn-primary">Back</a>
+                <a href="{{ route('home.products.index') }}" class="btn btn-primary">Back</a>
                 <br> <br>
                 <!-- general form elements -->
                 <div class="box box-primary">

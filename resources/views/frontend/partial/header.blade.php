@@ -122,7 +122,11 @@
                                 <li><a href="javascript::void(0)">Already requested</a></li>
                             @endif
                             <li>
+                                @hasanyrole("Admin|Volunteer")
                                 <a href="{{ route('home.dashboard') }}">{{ auth()->user()->name }}</a>
+                            @else
+                                <a href="javascript::void(0)">{{ auth()->user()->name }}</a>
+                                @endhasanyrole
                             </li>
                             @endrole
 

@@ -2,7 +2,7 @@
 @section('app')
     <div class="form-box" id="login-box">
         <div class="header">Register New Membership</div>
-        <form action="{{ route('register') }}" method="post">
+        <form action="{{ route('register') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="body bg-gray">
                 <div class="form-group">

@@ -86,7 +86,7 @@ class RegisterController extends Controller
             'image' => $image,
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'status' => $data['status'] == 'on' ? 1 : 0,
+            'status' => empty($data['status']) ? 0 : ($data['status'] == 'on' ? 1 : 0),
         ]);
         $user->assignRole('Donor');
         $user->createAsStripeCustomer();
