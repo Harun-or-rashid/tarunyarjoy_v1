@@ -9,7 +9,7 @@
                 <br>
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Event Data Table</h3>
+                        <h3 class="box-title">Request Data Table</h3>
                     </div><!-- /.box-header -->
                     <div class="box-body table-responsive">
                         <table id="datatable" class="table table-bordered table-hover">
