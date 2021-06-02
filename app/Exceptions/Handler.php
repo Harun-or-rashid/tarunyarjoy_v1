@@ -3,8 +3,8 @@
 namespace App\Exceptions;
 
 use Exception;
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Spatie\Permission\Exceptions\UnauthorizedException;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
@@ -48,7 +48,15 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         if ($exception instanceof UnauthorizedException) {
-            return back('login');
+            if (auth()->check()) {
+                if (auth()->user()->hasRole(['Admin', 'Volunteer'])) {
+                    return redirect()->route('home');
+                } else {
+                    return redirect('/');
+                }
+            } else {
+                return redirect()->route('login');
+            }
         }
         return parent::render($request, $exception);
     }
