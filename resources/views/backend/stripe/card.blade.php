@@ -47,7 +47,7 @@
 
         const cardHolderName = document.getElementById('card-holder-name');
         const cardButton = document.getElementById('card-button');
-        var amount = document.getElementById('amount').value;
+        let amount = document.getElementById('amount').value;
 
         cardButton.addEventListener('click', async (e) => {
             const {

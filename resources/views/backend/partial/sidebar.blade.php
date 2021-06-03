@@ -34,19 +34,19 @@
 
             <li class="{{ set_active('home/users') }}">
                 <a href="{{ route('home.users.index') }}">
-                    <i class="fa fa-user"></i> <span>Users</span>
+                    <i class="fa fa-user"></i> <span>Members</span>
                 </a>
             </li>
 
             <li class="treeview {{ set_active('home/events') }}">
                 <a href="javascript::void(0)">
                     <i class="fa fa-laptop"></i>
-                    <span>Create an Event</span>
+                    <span>Event</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
                     <li class="{{ set_active('home/events') }}"><a href="{{ route('home.events.index') }}"><i
-                                class="fa fa-angle-double-right"></i>Events</a>
+                                class="fa fa-angle-double-right"></i>Events List</a>
                     </li>
                     @role('Admin')
                     <li class="{{ set_active('home/users/create') }}">
@@ -59,19 +59,19 @@
             </li>
             <li class="{{ set_active('home/members') }}">
                 <a href="{{ route('home.members.index') }}">
-                    <i class="fa fa-group"></i>Members
+                    <i class="fa fa-group"></i>Volunteer Request
                 </a>
             </li>
             <li class="treeview {{ set_active('home/products') }}">
                 <a href="javascript::void(0)">
                     <i class="fa fa-shopping-cart"></i>
-                    <span>Manage Products</span>
+                    <span>Products</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
                     <li class="{{ set_active('home/products') }}">
                         <a href="{{ route('home.products.index') }}">
-                            <i class="fa fa-angle-double-right"></i>Products
+                            <i class="fa fa-angle-double-right"></i>Products List
                         </a>
                     </li>
                     <li class="">

@@ -96,16 +96,7 @@
 
                             <li><a class="is-active" href="/">HOME</a></li>
                             <li><a href="#">ABOUT</a></li>
-                            {{-- <li class="has-child"><a href="#">CAUSES</a> --}}
-
-                            {{-- <ul class="submenu"> --}}
-                            {{-- <li class="submenu-item"><a href="causes.html">Causes list </a></li> --}}
-                            {{-- <li class="submenu-item"><a href="causes-single.html">Single cause </a></li> --}}
-                            {{-- <li class="submenu-item"><a href="causes-single.html">Single cause </a></li> --}}
-                            {{-- <li class="submenu-item"><a href="causes-single.html">Single cause </a></li> --}}
-                            {{-- </ul> --}}
-
-                            {{-- </li> --}}
+                            
                             <li><a href="#">CONTACT US</a></li>
                             @guest
                                 <li><a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Want to

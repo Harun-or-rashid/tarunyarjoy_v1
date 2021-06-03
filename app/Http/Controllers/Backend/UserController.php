@@ -127,8 +127,7 @@ class UserController extends Controller
             }
             $data['image'] = Storage::disk("local")->put("uploads\\users\\images", $request->image);
         }
-        $user->fill($data);
-        if ($user->save()) {
+        if ($user->update($data)) {
             $user->syncRoles($request->role);
             return back()->with('success', 'User updated successfully!');
         }

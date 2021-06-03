@@ -14,7 +14,7 @@
                             {{ $newRequestCount }}
                         </h3>
                         <p>
-                            New Requests
+                            Requests
                         </p>
                     </div>
                     <div class="icon">

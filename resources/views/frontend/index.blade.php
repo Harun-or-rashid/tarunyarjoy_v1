@@ -472,8 +472,7 @@
         <h2 class="title-style-1">Top Donor <span class="title-under"></span></h2>
 
         <div class="row">
-            @foreach (\App\Models\User::role('Donor')->where('donation', '!=', '0')->orderBy('donation', 'DESC')->take(4)->get()
-    as $index => $user)
+            @foreach ($topDonors as $index => $user)
                 <div class="col-md-3 col-sm-6">
 
                     <div class="cause">
