@@ -16,7 +16,7 @@ class DashboardController extends Controller
     public function index()
     {
         $data = [
-            'newRequestCount' => \App\Models\Request::where('status', 'request')->count(),
+            'newRequestCount' => \App\Models\Request::get()->count(),
             'donation' => User::sum('donation'),
             'volunteerCount' => User::role('Volunteer')->count(),
             'donorCount' => User::role('Donor')->count(),

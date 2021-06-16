@@ -18,7 +18,7 @@
 
             <div class="form-group">
                 <label for="">Donation Amount(USD):</label>
-                <input type="number" min="0" step="1" id="amount" class="form-control" value="10" />
+                <input type="number" min="0" step="1" id="amount" class="form-control" placeholder="10" required />
             </div>
             <div class="form-group">
                 <div id="card-element" class="form-control"></div>
@@ -47,7 +47,7 @@
 
         const cardHolderName = document.getElementById('card-holder-name');
         const cardButton = document.getElementById('card-button');
-        const amount = document.getElementById('amount').value;
+        let amount = document.getElementById('amount').value;
 
         cardButton.addEventListener('click', async (e) => {
             const {
@@ -67,6 +67,7 @@
                 document.getElementById("alert").classList.remove("hidden");
                 document.getElementById("message").innerHTML = "Something went wrong!";
             } else {
+                amount = document.getElementById('amount').value;
                 $.ajax({
                     type: "POST",
                     url: "{{ route('home.stripe.post') }}",

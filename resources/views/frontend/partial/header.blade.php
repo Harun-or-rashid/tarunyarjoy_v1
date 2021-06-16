@@ -44,9 +44,9 @@
                         <div class="col-sm-6 col-xs-12">
 
                             <ul class="list-unstyled list-inline header-contact">
-                                <li> <i class="fa fa-phone"></i> <a href="Phone:">01700000</a> </li>
+                                <li> <i class="fa fa-phone"></i> <a href="Phone:">+8801XXXXXXXXX</a></li>
                                 <li> <i class="fa fa-envelope"></i> <a
-                                        href="tarunyarjoy@gmail.com">tarunyarjoy@gmail.com</a> </li>
+                                        href="mailto:fahmida35-1890@diu.edu.bd">fahmida35-1890@diu.edu.bd</a> </li>
                             </ul> <!-- /.header-contact  -->
 
                         </div>
@@ -57,7 +57,7 @@
 
                                 <li> <a href="https://web.facebook.com/"> <i class="fa fa-facebook"></i> </a> </li>
                                 {{-- <li> <a href="#"> <i class="fa fa-twitter"></i>  </a> </li> --}}
-                                {{-- <li> <a href="#"> tarunyarjoy@gmail.com<i class="fa fa-google"></i>  </a> </li> --}}
+                                {{-- <li> <a href="#"> fahmida35-1890@diu.edu.bd<i class="fa fa-google"></i>  </a> </li> --}}
                                 {{-- <li> <a href="#"> <i class="fa fa-youtube"></i>  </a> </li> --}}
                                 {{-- <li> <a href="#"> <i class="fa fa fa-pinterest-p"></i>  </a> </li> --}}
                             </ul> <!-- /.header-social  -->
@@ -85,7 +85,7 @@
 
                         </button>
 
-                        <a class="navbar-brand" href="index.html"><img style="width: 115px; margin-top: -7px;"
+                        <a class="navbar-brand" href="/"><img style="width: 115px; margin-top: -7px;"
                                 src="{{ asset('assets') }}/images/sadaka-logo.png" alt=""></a>
 
                     </div>
@@ -94,39 +94,58 @@
 
                         <ul class="nav navbar-nav">
 
-                            <li><a class="is-active" href="#">HOME</a></li>
+                            <li><a class="is-active" href="/">HOME</a></li>
                             <li><a href="#">ABOUT</a></li>
-                            {{-- <li class="has-child"><a href="#">CAUSES</a> --}}
-
-                            {{-- <ul class="submenu"> --}}
-                            {{-- <li class="submenu-item"><a href="causes.html">Causes list </a></li> --}}
-                            {{-- <li class="submenu-item"><a href="causes-single.html">Single cause </a></li> --}}
-                            {{-- <li class="submenu-item"><a href="causes-single.html">Single cause </a></li> --}}
-                            {{-- <li class="submenu-item"><a href="causes-single.html">Single cause </a></li> --}}
-                            {{-- </ul> --}}
-
-                            {{-- </li> --}}
+                            
                             <li><a href="#">CONTACT US</a></li>
                             @guest
                                 <li><a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Want to
                                         be a Volunteer !</a></li>
+                                <li>
+                                    <a href="/login">Login</a>
+                                </li>
                             @endguest
                             @role('Admin|Volunteer')
-                            <li>
-                                <a href="{{ route('home.dashboard') }}">{{ auth()->user()->name }}</a>
+                            <li class="btn-group">
+                                <a href="javascript::void(0)" class="dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    {{ auth()->user()->name }} <i class="fa fa-chevron-circle-down"></i>
+                                </a>
+                                <div class="dropdown-menu" style="color: black;">
+                                    <a class="btn btn-link dropdown-item"
+                                        href="{{ route('home.dashboard') }}">Dashboard</a>
+                                    <form action="/logout" method="POST">
+                                        @csrf
+                                        <button class="btn btn-link" type="submit">Logout</button>
+                                    </form>
+                                </div>
                             </li>
                             @elserole('Donor')
-                            @if (auth()->user()->status == 0)
-                                <li><a href="{{ route('volunteer') }}">Want to be a Volunteer !</a></li>
-                            @else
-                                <li><a href="javascript::void(0)">Already requested</a></li>
-                            @endif
-                            <li>
-                                @hasanyrole("Admin|Volunteer")
-                                <a href="{{ route('home.dashboard') }}">{{ auth()->user()->name }}</a>
-                            @else
-                                <a href="javascript::void(0)">{{ auth()->user()->name }}</a>
-                                @endhasanyrole
+
+                            <li class="btn-group">
+                                <a href="javascript::void(0)" class="dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    {{ auth()->user()->name }} <i class="fa fa-chevron-circle-down"></i>
+                                </a>
+                                <div class="dropdown-menu" style="color: black;">
+                                    @hasanyrole("Admin|Volunteer")
+                                    <a class="btn btn-link dropdown-item"
+                                        href="{{ route('home.dashboard') }}">Dashboard</a>
+                                    @endhasanyrole
+                                    @if (auth()->user()->status == 0)
+                                        <a class="btn btn-link dropdown-item" href="{{ route('volunteer') }}">
+                                            Want to be a Volunteer !
+                                        </a>
+                                    @else
+                                        <a class="btn btn-link dropdown-item" href="javascript::void(0)">
+                                            Already requested
+                                        </a>
+                                    @endif
+                                    <form action="/logout" method="POST">
+                                        @csrf
+                                        <button class="btn btn-link" type="submit">Logout</button>
+                                    </form>
+                                </div>
                             </li>
                             @endrole
 
@@ -161,36 +180,36 @@
                         <input type="hidden" name="status" value="on">
                         <div class="form-group ">
                             <label for="exampleFormControlInput1">Name</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1"
-                                placeholder="your name like 'Ringku Islam'" name="name">
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="John doe"
+                                name="name">
                             {{ $errors->first('name') }}
                         </div>
 
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Phone</label>
                             <input type="text" class="form-control" id="exampleFormControlInput1" name="phone"
-                                placeholder="01000000000">
+                                placeholder="+8801XXXXXXXXX">
                             {{ $errors->first('phone') }}
                         </div>
 
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Email address</label>
                             <input type="email" class="form-control" id="exampleFormControlInput1" name="email"
-                                placeholder="name@example.com">
+                                placeholder="john.doe@mail.com">
                             {{ $errors->first('email') }}
                         </div>
 
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Password</label>
                             <input type="password" class="form-control" id="exampleFormControlInput1" name="password"
-                                placeholder="Password">
+                                placeholder="**********">
                             {{ $errors->first('password') }}
                         </div>
 
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Confirm Password</label>
                             <input type="password" class="form-control" id="exampleFormControlInput1"
-                                name="password_confirmation" placeholder="Password">
+                                name="password_confirmation" placeholder="**********">
                             {{ $errors->first('password_confirmation') }}
                         </div>
                         <div class="form-group">
