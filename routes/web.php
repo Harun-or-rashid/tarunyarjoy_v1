@@ -13,6 +13,7 @@
 
 
 Route::get('/', 'Frontend\HomeController@index')->name('landing');
+Route::get('/coming-to-donate/{bRequestId}/{userId}', "Backend\BloodRequestController@comingToDonate")->name('comingToDonate');
 
 Auth::routes();
 
@@ -27,6 +28,21 @@ Route::group(['as' => 'home.', 'prefix' => 'home', 'middleware' => ['auth', 'rol
 
     /* ---------------------------- User Profile end ---------------------------- */
 
+    Route::group(['as' => 'blood.', 'prefix' => 'blood'], function () {
+
+        Route::get('/', "Backend\BloodRequestController@index")->name('index');
+        Route::get('/requests', "Backend\BloodRequestController@requests")->name('requests');
+
+        Route::group(["middleware" => 'role:Volunteer'], function () {
+            Route::post('/request', "Backend\BloodRequestController@requestBlood")->name('request');
+            Route::delete('/request-delete/{id}', "Backend\BloodRequestController@requestBloodDelete")->name('request.delete');
+        });
+
+        Route::group(["middleware" => 'role:Admin'], function () {
+            Route::post('/accept/{id}', "Backend\BloodRequestController@accept")->name('accept');
+            Route::post('/reject/{id}', "Backend\BloodRequestController@reject")->name('reject');
+        });
+    });
     Route::group(['as' => 'users.', 'prefix' => 'users'], function () {
 
         Route::get('/', "Backend\UserController@index")->name('index');

@@ -49,11 +49,11 @@
                                 class="fa fa-angle-double-right"></i>Events</a>
                     </li>
                     @role('Admin')
-                    <li class="{{ set_active('home/users/create') }}">
-                        <a href="{{ route('home.events.create') }}">
-                            <i class="fa fa-angle-double-right"></i> Create New
-                        </a>
-                    </li>
+                        <li class="{{ set_active('home/users/create') }}">
+                            <a href="{{ route('home.events.create') }}">
+                                <i class="fa fa-angle-double-right"></i> Create New
+                            </a>
+                        </li>
                     @endrole
                 </ul>
             </li>
@@ -80,6 +80,29 @@
                         </a>
                     </li>
 
+                </ul>
+            </li>
+            <li class="treeview {{ set_active('home/events') }}">
+                <a href="javascript::void(0)">
+                    <i class="fa fa-bold"></i>
+                    <span>Blood</span>
+                     <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                     @role('Volunteer')
+                        <li class="{{ set_active('home/requests') }}">
+                            <a href="{{ route('home.blood.requests') }}">
+                                <i class="fa fa-angle-double-right"></i>Request Blood
+                            </a>
+                        </li>
+                    @endrole
+                    @role('Admin')
+                    <li class="{{ set_active('home/blood/') }}">
+                        <a href="{{ route('home.blood.index') }}">
+                            <i class="fa fa-angle-double-right"></i> Donor Request
+                        </a>
+                    </li>
+                    @endrole
                 </ul>
             </li>
 
