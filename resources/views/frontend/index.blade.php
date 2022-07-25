@@ -284,7 +284,8 @@
 
                 <div class="cause">
 
-                    <img src="{{ asset('assets') }}/images/causes/cause-hunger.jpg" alt="" class="cause-img">
+                    <img src="{{ asset('assets') }}/images/causes/cause-hunger.jpg" alt=""
+                        class="cause-img">
 
                     <div class="progress cause-progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0"
@@ -318,7 +319,8 @@
 
                 <div class="cause">
 
-                    <img src="{{ asset('assets') }}/images/causes/cause-education.jpg" alt="" class="cause-img">
+                    <img src="{{ asset('assets') }}/images/causes/cause-education.jpg" alt=""
+                        class="cause-img">
 
                     <div class="progress cause-progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
@@ -351,7 +353,8 @@
 
                 <div class="cause">
 
-                    <img src="{{ asset('assets') }}/images/causes/cause-rights.jpg" alt="" class="cause-img">
+                    <img src="{{ asset('assets') }}/images/causes/cause-rights.jpg" alt=""
+                        class="cause-img">
 
                     <div class="progress cause-progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0"
@@ -383,7 +386,8 @@
 
                 <div class="cause">
 
-                    <img src="{{ asset('assets') }}/images/causes/cause-culture.jpg" alt="" class="cause-img">
+                    <img src="{{ asset('assets') }}/images/causes/cause-culture.jpg" alt=""
+                        class="cause-img">
 
                     <div class="progress cause-progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
@@ -472,8 +476,7 @@
         <h2 class="title-style-1">Top Donor <span class="title-under"></span></h2>
 
         <div class="row">
-            @foreach (\App\Models\User::role('Donor')->where('donation', '!=', '0')->orderBy('donation', 'DESC')->take(4)->get()
-    as $index => $user)
+            @foreach (\App\Models\User::role('Donor')->where('donation', '!=', '0')->orderBy('donation', 'DESC')->take(4)->get() as $index => $user)
                 <div class="col-md-3 col-sm-6">
 
                     <div class="cause">
@@ -625,18 +628,17 @@
                                     <form action="php/mail.php" class="ajax-form">
 
                                         <div class="form-group">
-                                            <input type="text" name="name" class="form-control" placeholder="Name"
-                                                required>
+                                            <input type="text" name="name" class="form-control"
+                                                placeholder="Name" required>
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="email" name="email" class="form-control" placeholder="E-mail"
-                                                required>
+                                            <input type="email" name="email" class="form-control"
+                                                placeholder="E-mail" required>
                                         </div>
 
                                         <div class="form-group">
-                                            <textarea name="message" class="form-control" placeholder="Message"
-                                                required></textarea>
+                                            <textarea name="message" class="form-control" placeholder="Message" required></textarea>
                                         </div>
 
                                         <div class="form-group alerts">
@@ -705,7 +707,8 @@
 
                 <form class="form-donation">
 
-                    <h3 class="title-style-1 text-center">Thank you for your donation <span class="title-under"></span>
+                    <h3 class="title-style-1 text-center">Thank you for your donation <span
+                            class="title-under"></span>
                     </h3>
 
                     <div class="row">
@@ -752,8 +755,7 @@
                     <div class="row">
 
                         <div class="form-group col-md-12">
-                            <textarea cols="30" rows="4" class="form-control" name="note"
-                                placeholder="Additional note"></textarea>
+                            <textarea cols="30" rows="4" class="form-control" name="note" placeholder="Additional note"></textarea>
                         </div>
 
                     </div>
@@ -790,9 +792,12 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
     window.jQuery || document.write('<script src="{{ asset('assets') }}/js/jquery-1.11.1.min.js"><\/script>')
-
 </script>
-
+@if (Session::has('accept-success'))
+    <script>
+        alert('{{ Session::get('accept-success') }}');
+    </script>
+@endif
 <!-- Bootsrap javascript file -->
 <script src="{{ asset('assets') }}/js/bootstrap.min.js"></script>
 
@@ -818,7 +823,6 @@
     }(window, document, 'script', 'ga'));
     ga('create', 'UA-XXXXX-X');
     ga('send', 'pageview');
-
 </script>
 
 </body>

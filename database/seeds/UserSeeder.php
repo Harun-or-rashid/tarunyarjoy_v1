@@ -14,11 +14,11 @@ class UserSeeder extends Seeder
     {
         factory(User::class, 10)->create()->each(function ($user) {
             $user->assignRole('Donor');
-            $user->createAsStripeCustomer();
+            //$user->createAsStripeCustomer();
         });
         factory(User::class, 10)->create()->each(function ($user) {
             $user->assignRole(['Volunteer', 'Donor']);
-            $user->createAsStripeCustomer();
+           // $user->createAsStripeCustomer();
         });
         $user = User::create([
             'name' => "Admin",
@@ -32,6 +32,6 @@ class UserSeeder extends Seeder
             'image' => randUserAvatar(),
         ]);
         $user->assignRole(['Admin', 'Donor']);
-        $user->createAsStripeCustomer();
+       // $user->createAsStripeCustomer();
     }
 }
